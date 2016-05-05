@@ -6,12 +6,17 @@ import os
 
 from plan import Plan
 
-path = os.getcwd()
-print path
+path = os.getcwd() # 获取当前路径
 # cron = Plan()
 # cron.command('date', every='1.day')
 
 def SelectCommand(command, nextArgv):
+    """
+    根据命令进行选择
+    :param command: 传入的命令
+    :param nextArgv: 额外的输入
+    :return:
+    """
     if command == 'help':
         helpSystem(nextArgv)
     else:
@@ -25,17 +30,31 @@ def SelectCommand(command, nextArgv):
 
 
 def CreatePlan(command):
+    """
+    创建指定命令任务
+    :param command:
+    :return:
+    """
     cron = Plan(command)
-    cron.command('node ' + path + '/index.js', every='1.day', at='16:51')
+    cron.command('node ' + path + '/index.js ' + command, every='1.day', at='16:51')
     cron.run('write')
 
 def DestroyPlan(command):
+    """
+    取消指定任务
+    :param command:
+    :return:
+    """
     cron = Plan(command)
     # cron.command('node index.js', every='1.day', at='16:19')
     cron.run('clear')
 
 
 def GetSelectorList():
+    """
+    获取模块列表
+    :return: 模块列表
+    """
     return {
         'singleDog': '单身狗模块, 每日发送单身计时器'
     }
@@ -51,10 +70,15 @@ def helpSystem(keywords):
             script.py help singleDog // 查看模块介绍与帮助
 
     """
-    result = selector.get(keywords) or defaultText
+    result = selector.get(keywords) or defaultText  # 如果没有,返回默认的帮助文档
     print result
 
 def SelectFile(file):
+    """
+    是否存在指定模块
+    :param file: 输入的命令(文件)名
+    :return: 存在指定模块与否
+    """
     if os.path.isfile('./controllers/' + file + 'Controller.js'):
         return True
     else:
