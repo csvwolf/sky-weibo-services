@@ -6,14 +6,19 @@
  * 说明：
  * action为基础动作
  */
+var superagent = require('superagent'),
+    moment = require('moment'),
+    winston = require('winston'),
+    action = require('./actionList'),
+    logger = require('./logConfig')(winston);
+
 module.exports = (function() {
-    var superagent = require('superagent'),
-        moment = require('moment'),
-        action = require('./actionList');
 
     return {
         action: action,
         superagent: superagent,
-        moment: moment
+        moment: moment,
+        logger: logger
     }
 })();
+

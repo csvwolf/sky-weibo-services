@@ -10,11 +10,13 @@
 module.exports = (function(path) {
     var singleDog = require(path + '/singleDogController'),
         oneWord = require(path + '/oneWordController'),
-        test = require(path + '/testController.sample');
+        test = require(path + '/testController.sample'),
+        helper = require(path + '/helperController');
 
     return {
         singleDog: singleDog,
         say: oneWord,
+        help: helper,
         test: test
     }
 })('../controllers');

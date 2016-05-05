@@ -35,16 +35,18 @@ module.exports = function(appConfig, appKeys, args) {
     };
 
     appConfig.action.postAction.postWithoutImage(appConfig, params, callback);
+
+    function check(args) {
+        return args.length >= 1;
+    }
+
+    function callback(err, res) {
+        if (err) {
+            appConfig.logger.error(err);
+        } else {
+            console.log('小天说发送成功');
+            appConfig.logger.info('小天说发送成功');
+        }
+    }
 };
 
-function check(args) {
-    return args.length >= 1;
-}
-
-function callback(err, res) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('小天说发送成功');
-    }
-}

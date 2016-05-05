@@ -35,9 +35,10 @@ module.exports = function(appConfig, appKeys) {
 
     var callback = function(err, res) {
         if (err) {
-            console.log(err);
+            appConfig.logger.error(err);
         } else {
             console.log('本日关爱单身狗成功');
+            appConfig.logger.info('本日关爱单身狗成功');
         }
     };
 

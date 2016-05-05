@@ -15,6 +15,7 @@ var command = process.argv[2] || null;
 
 try {
     router[command](appConfig, appKeys, process.argv);
+    appConfig.logger.info('准备执行: ' + command);
 } catch (e) {
-    console.log('输入正确的命令');
+    router['help']();
 }
