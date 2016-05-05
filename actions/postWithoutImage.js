@@ -1,5 +1,7 @@
 /**
  * Created by SkyAo on 16/5/4.
+ *
+ * 不带图片，发送微博
  */
 module.exports = function(appConfig, params, callback) {
     if (!params.access_token || !params.status) {
