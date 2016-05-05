@@ -9,10 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    //"cheerio": "^0.20.0",
     "moment": "^2.13.0",
     "superagent": "^1.8.3"
-    //"webdriverio": "^4.0.5",
-    //"weibo": "^0.6.11"
   }
 }
