@@ -7,7 +7,7 @@
  * 基本不需要改动，程序入口
  */
 
-var appConfig = require('./config/appConfig'),
+var appConfig = require('./config/appConfig')(__dirname),
     appKeys = require('./config/appKeys'),
     router = require('./config/router');
 

@@ -6,13 +6,13 @@
  * 说明：
  * action为基础动作
  */
-var superagent = require('superagent'),
-    moment = require('moment'),
-    winston = require('winston'),
-    action = require('./actionList'),
-    logger = require('./logConfig')(winston);
 
-module.exports = (function() {
+module.exports = function(dirname) {
+    var superagent = require('superagent'),
+        moment = require('moment'),
+        winston = require('winston'),
+        action = require('./actionList'),
+        logger = require('./logConfig')(dirname, winston);
 
     return {
         action: action,
@@ -20,5 +20,5 @@ module.exports = (function() {
         moment: moment,
         logger: logger
     }
-})();
+};
 
